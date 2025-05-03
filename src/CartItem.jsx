@@ -50,6 +50,18 @@ const calculateTotalCost = (item) => {
     const quantity = item.quantity;
     const unitPrice = parseFloat(item.cost.substring(1)); // Convert cost from string to number
     const totalCost = quantity * unitPrice;
+
+    const handleUpdateQuantity = (item, newQuantity) => {
+        dispatch(updateQuantity({ name: item.name, quantity: newQuantity }));
+      };
+
+      const handleAddItem = (item) => {
+        dispatch(addItem(item));
+      }; 
+
+      const handleRemoveItem = (item) => {
+        dispatch(removeItem(item.name));
+      };
     return totalCost.toFixed(2); // Return total cost as a string with two decimal places
   };
   
